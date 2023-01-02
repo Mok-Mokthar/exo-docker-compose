@@ -33,6 +33,23 @@ Normalement vous devez avoir cet onglet :
 
 ![php localhost](images/php.png)
 
+Cet onglet est généré grace au fichier index.php
+
+```bash
+<html>
+    <head>
+        <title>Hello Man</title>
+    </head>
+
+    <body>
+        <?php
+            echo "Jure ça marche";
+            phpinfo(INFO_GENERAL);
+        ?>
+    </body>
+</html>
+
+
 Ensuite pour vérifier que le phpmyadmin fonctionne il faut inscrire dans l'url localhost:8080.
 
 Normalement vous devez avoir cet onglet :
