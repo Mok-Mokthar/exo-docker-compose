@@ -48,7 +48,7 @@ Cet onglet est généré grace au fichier index.php
         ?>
     </body>
 </html>
-
+```
 
 Ensuite pour vérifier que le phpmyadmin fonctionne il faut inscrire dans l'url localhost:8080.
 
