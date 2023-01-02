@@ -1,0 +1,41 @@
+version: '3'
+services:
+
+  mysql:
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: mysql
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3306:3306'
+
+  phpmyadmin:
+    image: phpmyadmin
+    depends_on:
+      - mysql
+    container_name: pma
+    environment:
+      - PMA_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=root
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    ports:
+      - '8080:80'
+
+  web:
+    image: php:7.2.2-apache
+    container_name: php_web
+    depends_on:
+      - mysql
+    volumes:
+      - ./php/:/var/www/html
+    ports:
+      - "80:80"
+    stdin_open: true
+    tty: true
+
+volumes:
+  mysql_data :
